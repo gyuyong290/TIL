@@ -11,8 +11,11 @@ public class Main {
         int hash = 0;
         for(int i=0; i<n; i++){
             int num = line[i] - 'a' + 1;
-            num *= Math.pow(r, i);
-            hash += num;
+            int r2 = 1;
+            for(int j=0; j<i; j++){
+                r2 = r2 * r % m;
+            }
+            hash += num * r2;
         }
         hash %= m;
 
